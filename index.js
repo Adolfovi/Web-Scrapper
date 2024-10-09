@@ -33,11 +33,12 @@ function generarDominioAleatorio() {
 }
 
 
-function getDataofDomain(){
+function getDataofSelectedDomain(){
 
 // Cambia esta URL a la que deseas hacer scraping
-// const url = 'https://tudominio.com'; 
-let url = generarDominioAleatorio;
+//let url = 'https://itcm.es'; 
+
+  let url = "https://" + generarDominioAleatorio();
 
 function obtenerDominio(url) {
     try {
@@ -79,10 +80,10 @@ async function scrapeData() {
 
         // console.log(items);
     } catch (error) {
-        console.error('Error al hacer scraping:', error);
+        console.log("no existe la url " + url);
     }
 }
 scrapeData();
 }
 
-getDataofDomain();
+getDataofSelectedDomain();
