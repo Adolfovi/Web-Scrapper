@@ -85,7 +85,8 @@ async function scrapeData() {
 
         // console.log(items);
     } catch (error) {
-        console.log("no existe la url " + url);
+        console.log(url);
+        console.log("NO EXISTS");
     }
 }
 scrapeData();
