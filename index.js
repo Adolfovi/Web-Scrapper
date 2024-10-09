@@ -66,7 +66,7 @@ async function scrapeData() {
 
         const description = $('meta[name="description"]').attr('content');
         if(description == undefined){
-            console.log('NO DATA');
+            console.log('EXISTS BUT NO DATA');
         }else{
             console.log(description);
         }
