@@ -65,7 +65,12 @@ async function scrapeData() {
 
 
         const description = $('meta[name="description"]').attr('content');
-        console.log(description);
+        if(description == undefined){
+            console.log('NO DATA');
+        }else{
+            console.log(description);
+        }
+        
 
         // Seleccionar los elementos <meta> en el <head>
         // const items = [];
