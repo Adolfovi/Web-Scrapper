@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const dns = require('dns');
 const { URL } = require('url');
 
-
+// GENERA UN DOMINIO ALEATORIO
 function generarDominioAleatorio() {
     // Función para generar una cadena de letras aleatorias
     function generarNombreDominio(longitud) {
@@ -32,7 +32,7 @@ function generarDominioAleatorio() {
     return dominio;
 }
 
-
+// OBTENER DATOS DE LA URL GENERADA
 function getDataofSelectedDomain(){
 
 // Cambia esta URL a la que deseas hacer scraping
@@ -71,7 +71,7 @@ async function scrapeData() {
             console.log(description);
         }
         
-
+        // OBTENER UN OBJETO QUE CONTIENE LA INFORMACION DE TODOS LOS META
         // Seleccionar los elementos <meta> en el <head>
         // const items = [];
         // $('head meta').each((index, element) => {
