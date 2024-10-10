@@ -10,6 +10,8 @@ function generarDominioAleatorio() {
                      'la', 'le', 'li', 'lo', 'lu', 'ma', 'me', 'mi', 'mo', 'mu', 
                      'na', 'ne', 'ni', 'no', 'nu', 'ra', 're', 'ri', 'ro', 'ru'];
 
+    const TopDomain = ['com','org','net','cat','edu'];
+
     // Función para generar un nombre de dominio aleatorio
     function generarNombreDominio(longitud) {
         let resultado = '';
@@ -17,6 +19,8 @@ function generarDominioAleatorio() {
             const indiceAleatorio = Math.floor(Math.random() * silabas.length);
             resultado += silabas[indiceAleatorio];
         }
+        resultado = resultado +".";
+        resultado = resultado +TopDomain[Math.floor(Math.random() * 5)];
         return resultado;
     }
 
@@ -25,7 +29,7 @@ function generarDominioAleatorio() {
     const nombreDominio = generarNombreDominio(longitudDominio);
     
     // Retorna el dominio final
-    return `${nombreDominio}.com`; // Puedes cambiar la extensión si lo deseas
+    return `${nombreDominio}`; // Puedes cambiar la extensión si lo deseas
 }
 
 
