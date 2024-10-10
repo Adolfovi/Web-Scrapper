@@ -3,34 +3,31 @@ const cheerio = require('cheerio');
 const dns = require('dns');
 const { URL } = require('url');
 
-// GENERA UN DOMINIO ALEATORIO
+// GENERA UN DOMINIO ALEATORIO CON SÍLABAS
 function generarDominioAleatorio() {
-    // Función para generar una cadena de letras aleatorias
+    // Array de sílabas
+    const silabas = ['ba', 'be', 'bi', 'bo', 'bu', 'ka', 'ke', 'ki', 'ko', 'ku', 
+                     'la', 'le', 'li', 'lo', 'lu', 'ma', 'me', 'mi', 'mo', 'mu', 
+                     'na', 'ne', 'ni', 'no', 'nu', 'ra', 're', 'ri', 'ro', 'ru'];
+
+    // Función para generar un nombre de dominio aleatorio
     function generarNombreDominio(longitud) {
-        const caracteres = 'abcdefghijklmnopqrstuvwxyz';
         let resultado = '';
         for (let i = 0; i < longitud; i++) {
-            const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
-            resultado += caracteres[indiceAleatorio];
+            const indiceAleatorio = Math.floor(Math.random() * silabas.length);
+            resultado += silabas[indiceAleatorio];
         }
         return resultado;
     }
 
-    // Longitud del nombre del dominio
-    const longitudNombre = Math.floor(Math.random() * 10) + 3; // Entre 3 y 12 caracteres
-    const nombreDominio = generarNombreDominio(longitudNombre);
-
-    // Array de extensiones de dominio
-    const extensiones = ['.com', '.net', '.org', '.io', '.info', '.co', '.biz'];
-
-    // Selecciona aleatoriamente una extensión
-    const extensionAleatoria = extensiones[Math.floor(Math.random() * extensiones.length)];
-
-    // Genera el dominio completo
-    const dominio = `${nombreDominio}${extensionAleatoria}`;
-
-    return dominio;
+    // Genera un nombre de dominio de longitud aleatoria (por ejemplo, entre 2 y 5 sílabas)
+    const longitudDominio = Math.floor(Math.random() * 4) + 2; // 2 a 5 sílabas
+    const nombreDominio = generarNombreDominio(longitudDominio);
+    
+    // Retorna el dominio final
+    return `${nombreDominio}.com`; // Puedes cambiar la extensión si lo deseas
 }
+
 
 // OBTENER DATOS DE LA URL GENERADA
 function getDataofSelectedDomain(){
