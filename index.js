@@ -37,7 +37,7 @@ function generarDominioAleatorio() {
 function getDataofSelectedDomain(){
 
 // Cambia esta URL a la que deseas hacer scraping
-//let url = 'https://itcm.es'; 
+//let url = 'https://tudominio.com'; 
 
   let url = "https://" + generarDominioAleatorio();
 
