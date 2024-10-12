@@ -86,13 +86,13 @@ function getDataofSelectedDomain() {
 
             const description = $('meta[name="description"]').attr('content');
             if (description == undefined) {
-                console.log(dominio + ' - EXISTS BUT NO DATA');
-                fs.appendFile('results.txt', dominio + ' - EXISTS BUT NO DATA', function (err) {
+                console.log(dominio + ',"NO DATA"');
+                fs.appendFile('results.csv', '"'+dominio+'"' + ',"NO DATA"\n', function (err) {
                     if (err) throw err;
                 });
             } else {
                 console.log(dominio + " - " + description);
-                fs.appendFile('results.txt', dominio + " - " + description, function (err) {
+                fs.appendFile('results.csv', '"'+dominio+'"' + ',"' + description + '"\n', function (err) {
                     if (err) throw err;
                 });
             }
