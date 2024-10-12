@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { URL } = require('url');
-
+const fs = require('fs');
 
 
 // GENERA UN DOMINIO ALEATORIO CON SÍLABAS
@@ -9,7 +9,7 @@ function generarDominioAleatorio() {
     // Array de sílabas
     const worldWideWeb = ['', 'www.'];
     const silabas = [
-        'a','e','i','o','u',
+        'a', 'e', 'i', 'o', 'u',
         'ba', 'be', 'bi', 'bo', 'bu',
         'ca', 'ce', 'ci', 'co', 'cu',
         'da', 'de', 'di', 'do', 'du',
@@ -87,8 +87,14 @@ function getDataofSelectedDomain() {
             const description = $('meta[name="description"]').attr('content');
             if (description == undefined) {
                 console.log(dominio + ' - EXISTS BUT NO DATA');
+                fs.appendFile('results.txt', dominio + ' - EXISTS BUT NO DATA', function (err) {
+                    if (err) throw err;
+                });
             } else {
                 console.log(dominio + " - " + description);
+                fs.appendFile('results.txt', dominio + " - " + description, function (err) {
+                    if (err) throw err;
+                });
             }
 
             // OBTENER UN OBJETO QUE CONTIENE LA INFORMACION DE TODOS LOS META
@@ -115,3 +121,5 @@ function getDataofSelectedDomain() {
 setInterval(() => {
     getDataofSelectedDomain();
 }, 1000);
+
+
